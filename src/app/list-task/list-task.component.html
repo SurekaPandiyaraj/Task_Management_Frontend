@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="card shadow-none p-3 mb-5 bg-body-tertiary raouted">
+    <div class="d-flex justify-content-around">
+      <div class="input-group mb-3">
+        <input type="name" class="form-control h-70 w-0" placeholder="strong Task...">
+      </div>
+      <button type="button" class="btn btn-dark " [routerLink]="['/add']">New Task</button>
+    </div>
+
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+
+          <td scope="col">Id</td>
+          <td scope="col">Title</td>
+          <td scope="col">Descripition</td>
+          <td scope="col">DueDate</td>
+          <td scope="col">Priority</td>
+          <td scope="col">Assignee</td>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tasks ">
+          <td>{{item.id}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.deuDate| date :"dd-MMM-yyyy"}}</td>
+          <td>{{item.priority}} </td>
+          <td></td>
+          <td>
+            <button type="button" class="btn btn-warning " (click)="onEdit(item.id)">
+              <i class="bi bi-pencil-square"></i></button>
+            <button type="button" class="btn btn-danger me-3" (click)="onDelete(item.id)">
+              <i class="bi bi-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
