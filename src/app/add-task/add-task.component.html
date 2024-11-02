@@ -4,40 +4,62 @@
       <h3>Add New Task</h3>
     </div>
     <div class="card-body" style="width: 400px;">
-
       <form [formGroup]="addtaskform" (ngSubmit)="onAddTask()">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="title" class="form-control" id="title" formControlName="title">
+          <input type="text" class="form-control" id="title" formControlName="title" required>
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <input type="text" class="form-control" id="description" formControlName="description">
+          <input type="text" class="form-control" id="description" formControlName="description" required>
         </div>
         <div class="mb-3">
           <label for="dueDate" class="form-label">Due Date</label>
-          <input type="date" class="form-control" id="dueDate" formControlName="dueDate">
+          <input type="date" class="form-control" id="dueDate" formControlName="dueDate" required>
         </div>
         <div class="mb-3">
           <label for="priority" class="form-label">Priority:</label>
-          <select name="" class="form-control" id="priority" formControlName="priority">
+          <select class="form-control" id="priority" formControlName="priority" required>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
           </select>
         </div>
         <div class="mb-3">
-          <label for="assinge" class="form-label">Assinge</label>
-          <input type="text" class="form-control" id="assinge" formControlName="dueDate">
+          <label for="assignee" class="form-label">Assignee</label>
+          <select class="form-control" id="assignee" formControlName="assigneeId" required>
+            <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+          </select>
         </div>
 
         <div class="mb-3 mx-auto">
           <button type="submit" [disabled]="addtaskform.invalid" class="btn btn-primary me-2">Submit</button>
-          <button type="reset" (click)="cencel()" class="btn btn-secondary">Cancel</button>
+          <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
         </div>
 
+        <div class="col-4 mt-4" formArrayName="checkList">
+          <h3>Add Checklist</h3>
+          <div class="row" *ngFor="let checkList of mycheckList.controls; let i=index;">
+            <div [formGroupName]="i">
+              <div class="row mt-2">
+                <div class="col-2">
+                  <input type="checkbox" class="for-check-input fs-4" formControlName="isDone">
+                </div>
+                <div class="col-8">
+                  <input type="text" class="form-control" formControlName="name" placeholder="Checklist Item" required>
+                </div>
+                <div class="col-2">
+                  <button type="button" class="btn btn-danger" (click)="removeCheckList(i)">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <button type="button" class="btn btn-success" (click)="addCheckList()">Add</button>
+          </div>
+        </div>
       </form>
     </div>
   </div>
-
 </div>

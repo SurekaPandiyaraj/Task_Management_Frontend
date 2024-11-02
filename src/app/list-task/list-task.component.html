@@ -2,7 +2,7 @@
   <div class="card shadow-none p-3 mb-5 bg-body-tertiary raouted">
     <div class="d-flex justify-content-around">
       <div class="input-group mb-3">
-        <input type="name" class="form-control h-70 w-0" placeholder="strong Task...">
+        <input type="name" class="form-control h-70 w-0" [(ngModel)]="searchText" placeholder="Search Task...">
       </div>
       <button type="button" class="btn btn-dark " [routerLink]="['/add']">New Task</button>
     </div>
@@ -22,17 +22,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of tasks ">
-          <td>{{item.id}}</td>
-          <td>{{item.title}}</td>
-          <td>{{item.description}}</td>
-          <td>{{item.deuDate| date :"dd-MMM-yyyy"}}</td>
-          <td>{{item.priority}} </td>
-          <td></td>
+        <tr *ngFor="let Task of tasks | task : searchText">
+          <td>{{Task.id}}</td>
+          <td>{{Task.title}}</td>
+          <td>{{Task.description}}</td>
+          <td>{{Task.deuDate| date :"dd-MMM-yyyy"}}</td>
+          <td
+            [ngClass]="{'text-danger':Task.priority === 'High','text-warning':Task.priority === 'Medium','y':Task.priority === 'Low'}">
+            {{Task.priority}}</td>
+          <td>{{Task.user?.name}}</td>
           <td>
-            <button type="button" class="btn btn-warning " (click)="onEdit(item.id)">
+            <button type="button" class="btn btn-warning " (click)="onEdit(Task.id)">
               <i class="bi bi-pencil-square"></i></button>
-            <button type="button" class="btn btn-danger me-3" (click)="onDelete(item.id)">
+            <button type="button" class="btn btn-danger me-3" (click)="onDelete(Task.id)">
               <i class="bi bi-trash"></i></button>
           </td>
         </tr>

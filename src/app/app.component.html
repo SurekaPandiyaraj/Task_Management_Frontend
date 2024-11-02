@@ -2,12 +2,12 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <img src="src\Logo.jpg" >
+      <img src="Logo.jpg" style="width: 50px; height: 50px;">
       <a class="navbar-brand">UNICOM TIC</a>
-  
+
       <div class="collapse navbar-collapse" id="navbarCollapse">
-     
-        <form class="d-flex" role="search">
+
+        <form class="d-flex" role="search" >
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -15,43 +15,43 @@
     </div>
   </nav>
 
-<div class="d-flex">
-  <div >
-     <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 1000px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <svg class="bi pe-none me-2" width="16" height="16">
-        <use xlink:href="#bootstrap" />
-      </svg>
-      <span class="fs-4">Sidebar</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page">
+  <div class="d-flex">
+    <div>
+      <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 1000px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <svg class="bi pe-none me-2" width="16" height="16">
+            <use xlink:href="#bootstrap" />
           </svg>
-          Home
+          <span class="fs-4">Sidebar</span>
         </a>
-      </li>
-      <li>
-        <a [routerLink]="['/users']" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16">
-          </svg>
-          Users
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/tasks']" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16">
-          </svg>
-          Tasks
-        </a>
-      </li>
-    </ul>
-    <hr>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link" aria-current="page">
+              <svg class="bi pe-none me-2" width="16" height="16">
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/users']" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16">
+              </svg>
+              Users
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/tasks']" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16">
+              </svg>
+              Tasks
+            </a>
+          </li>
+        </ul>
+        <hr>
+      </div>
+    </div>
+    <div class="mt-5" style="width: 100%;">
+      <router-outlet></router-outlet>
     </div>
   </div>
-  <div class="mt-5" style="width: 100%;" >
-    <router-outlet></router-outlet>
-  </div>
-</div>

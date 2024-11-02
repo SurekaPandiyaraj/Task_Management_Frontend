@@ -6,6 +6,7 @@ import { User } from './models/User';
   providedIn: 'root'
 })
 export class UserService {
+  
    url ='http://localhost:5126/api/Users'
    
   constructor(private http:HttpClient) { }
@@ -28,6 +29,10 @@ export class UserService {
 
   updateUser(user: User) {
     return this.http.put(this.url + "/" + user.id, user);
+  }
+
+  getUserById(Id: number) {
+    return this.http.get<User>(this.url + "/" + Id);
   }
 
 }

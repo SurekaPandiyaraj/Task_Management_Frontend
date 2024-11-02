@@ -27,6 +27,13 @@
           </select>
         </div>
 
+        <div class="mb-3">
+          <label for="Assingee" class="form-label">Assingee</label>
+          <select class="form-control" id="Assingee"  formControlName="assingeId">
+          <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+        </select>
+        </div>
+
         <div class="mb-3 mx-auto">
           <button type="submit" [disabled]="EditTaskform.invalid" class="btn btn-primary me-2">Edit</button>
           <button type="reset" (click)="cencel()" class="btn btn-secondary">Cancel</button>

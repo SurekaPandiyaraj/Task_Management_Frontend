@@ -12,6 +12,8 @@ import { TaskFilterPipe } from './task-filter.pipe';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserEditComponent } from './user-add/user-edit.component';
+import { TaskPipe } from './task.pipe';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { UserEditComponent } from './user-add/user-edit.component';
     TaskFilterPipe,
     TaskEditComponent,
     UserListComponent,
-    UserEditComponent
+    UserEditComponent,
+    TaskPipe
+
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,8 @@ import { UserEditComponent } from './user-add/user-edit.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

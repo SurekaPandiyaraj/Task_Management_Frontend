@@ -6,5 +6,5 @@ export interface Task {
     description: string;
     deuDate: Date;
     priority: string;
-    user : User;
+    user? : User
   }

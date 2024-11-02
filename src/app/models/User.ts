@@ -5,7 +5,8 @@ export interface User {
     email: string;
     password: string;
     phoneNumber: string;
-    address?: Address
+    address: Address;
+    assignee : User
   }
 
   export interface Address {
@@ -13,5 +14,5 @@ export interface User {
     addressLine1: string;
     addressLine2: string;
     city: string;
+    userId? : number;
   }
-  
